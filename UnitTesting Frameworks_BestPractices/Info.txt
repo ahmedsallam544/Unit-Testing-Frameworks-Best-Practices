@@ -1,0 +1,110 @@
+﻿Primarily job for Unit Testing is completely for Developers.
+
+ But, when we talk about Quality ortesting 
+ then it would be a different answer.
+ -Each test should be Readable, Independent, Repeatable, and Reliable.
+ • One function may have multiple unit tests according to the
+ usage and outputs of the function.
+
+ Tests ensure
+ - The code meets expectations and specifications
+ • i.e. it does what it says it should do.
+ - The code continues to meet expectations over time
+ • i.e. avoiding regression.
+ --------------------------------------------------------
+Why Unit Test
+• Better designs
+Helps to produce better code
+- Readable
+- Maintainable
+Testing makes developer slow down andthink before writing a code
+Reduce bugs in existing and new features
+Testing makes development faster
+-------------------------------------------------------
+Triple-A Structure is the Conceptual Test
+• Arrange
+• Act
+• Assert
+------------------------------------------
+Unit Test Best Practices
+• Single Responsibility
+- One test should be responsible for onescenario only.
+
+Self Descriptive
+Unit test must be easy to read and understand
+Variable Names - Method Names - Class Names - Self descriptive
+
+Test should have no uncertainty:
+• All inputs should be known
+• Method behavior should be predictable
+• Split in to two tests rather than using “If” or “Case”
+• No test logic in Production Code
+• No Exception Handling - Let other exceptions go uncaught.
+• Informative Assertion Messages (By reading the assertion message, we shouldknow why the test failed and what to do.
+)
+
+## Testing Frameworks
+Using Testing Frameworks gives
+
+- a way to designate things as being testesthat need to be run using “Attributes”
+- a way to compare the expected state againstthe actual one through using of “Assertions”
+-Test Runner It is a tool that executes the tests.
+--------------------------------------------------------
+ExpectedException Attribute
+ -- behaves correctly by throwing an exception we used 
+    ExpectedExceptionattribute .
+	 
+
+-----------------------------------------------------------
+Naming Convention
+
+Class preforming tests : classNameTest
+Testing Function (individual task)
+- ShouldBehaviorBeenTested
+- MethodName_StateBeforeAct_ExpectedResult
+Instance of class being tested
+sut : System Under Test
+cut : Code/Class Under Test
+
+------------------------------------------------------------
+DATA DRIVEN TEST
+An excellent way to verify the correct behavior of code is to execute 
+it usingrealistic data.
+
+A unit test is made data-driven by assigning attributes for connecting to and
+reading from a data source.
+• unit test will be called once per row in the data source.
+
+##Data Driven Test Steps
+ 1. data source 
+ 2. TestContext field
+ 3. Use the DataRow indexer property to retrieve the values  you use in a test.
+
+ ##Data Source Types  
+ 1. XML
+ 2. EXCL
+ 3. SQL Express
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+	
+
+
+
+
+
+
+
+
+
+
