@@ -10,8 +10,6 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
     [TestFixture]
     public class NunitClarificationTest
     {
-
-
         #region Classical Assertion
         [Test]
         public void Assert_Inconclusive()
@@ -21,17 +19,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
             // Assert
             Assert.Inconclusive();
         }
-        [Test]
-        public void Assert_Contains()
-        {
-            // Arrange
-            string superstring = "ABCDEFGH";
-            string substring = "CD";
-            //string substring = "XYZ";
-            // Act
-            // Assert
-            StringAssert.Contains(superstring, substring, "{0} Does not contain {1}", superstring, substring);
-        }
+         
         [Test]
         public void Test_ListsAreEqual_Passes()
         {
@@ -73,7 +61,8 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         public void AreSame()
         {
             object A = new string("Ahmed");
-            object B = new string("Ahmed");
+            object B = A;
+            //object B = new string("Ahmed");
             Assert.AreSame(A, B, "the 2 object Are Not the Same");
         }
         [Test]
@@ -87,7 +76,8 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         public void ReferenceEquals()
         {
             object A = new string("Ahmed");
-            object B = new string("Ahmed");
+            object B = A;
+            //object B = new string("Ahmed");
             Assert.ReferenceEquals(A, B);
         }
         [Test]
@@ -120,30 +110,29 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         public void StringAssertStartsWith()
         {
             object A = "Football";
-            StringAssert.StartsWith(A as string, "Foot");
+            StringAssert.StartsWith("Foot" ,A as string );
         }
         [Test]
         public void StringAssertEndsWith()
         {
             object A = "Football";
-            StringAssert.EndsWith(A as string, "ball");
+            StringAssert.EndsWith("ball" , A as string );
         }
         [Test]
         public void StringAssertContains()
         {
-            //object A = "Football";
-            //StringAssert.Contains(A as string, "otbal");
-            // Arrange
+            
             string superstring = "ABCDEFGH";
             string substring = "CD";
-            StringAssert.Contains(superstring, substring, "{0} Does not contain {1}", superstring, substring);
+            StringAssert.Contains( substring , superstring, "{0} Does not contain {1}", superstring, substring);
 
         }
         [Test]
         public void StringAssertEquals()
         {
             object A = "Football";
-            StringAssert.Equals(A as string, "Football");
+            string B = A.ToString();
+            StringAssert.Equals(A as string,  B);
         }
         [Test]
         public void StringAssertMatches()
@@ -203,7 +192,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
             List<string> expected = new List<string>()
             { "A" , "B" , "C" ,"D" };
             List<string> actual = new List<string>()
-            { "A" , "B" , "C"   };
+            { "A" , "B" , "C"  ,"D" };
             //Act
             //Assert
             CollectionAssert.AreEqual(expected, actual, "Not the same");
@@ -227,7 +216,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
             List<string> expected = new List<string>()
             { "A" , "B" , "C" ,"D" };
             List<string> actual = new List<string>()
-            { "A" , "B" , "C"   };
+            { "A" , "B" , "C"  ,"D" };
             //Act
             //Assert
             CollectionAssert.AreEquivalent(expected, actual, "Not the same");
@@ -315,7 +304,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         {
             int Bigest = 150;
             int Smallest = 140;
-            Assert.Less(Bigest, Smallest, "the Bigest Are Not Less Smallest");
+            Assert.Less(Smallest,  Bigest, "the Bigest Are Not Less Smallest");
         }
         [Test]
         public void LessOrEqual()
@@ -353,7 +342,6 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         {
             Assert.Pass("Any Pass Message");
         }
-
         [Test]
         public void Zero()
         {
@@ -372,6 +360,17 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
             int number = 20;
             Assert.IsNaN(number, "the number Is Not NaN");
         }
+      
+        [Test]
+        public void Multiple()
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(2 + 2, Is.EqualTo(4));
+                Assert.That(true, Is.EqualTo(5.2));
+                Assert.That(true, Is.EqualTo(3.9));
+            });
+        }
         [Test]
         public void Ignore()
         {
@@ -382,11 +381,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         {
             Assert.Warn("the test case Is Warn");
         }
-        [Test]
-        public void Multiple()
-        {
-            Assert.Multiple(null);// ???
-        }
+         
         [Test]
         public void Catch()
         {
@@ -402,7 +397,7 @@ namespace UnitTesting_Frameworks_BestPractices.Nunit
         public void AreNotEqualIgnoringCase()
         {
             object A = "Football";
-            StringAssert.AreNotEqualIgnoringCase(A as string, "Football");
+            StringAssert.AreNotEqualIgnoringCase(A as string, "Vollyball");
         }
         #endregion
 

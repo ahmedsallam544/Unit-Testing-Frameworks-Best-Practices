@@ -88,7 +88,9 @@ namespace UnitTesting_Frameworks_BestPractices.MSTest
             List<string> superset = new List<string>();
             superset.Add("A");
             superset.Add("B");
-            //superset.Add("C");
+            superset.Add("C");
+            superset.Add("D");
+            superset.Add("E");
 
             //Act
 
@@ -105,15 +107,16 @@ namespace UnitTesting_Frameworks_BestPractices.MSTest
         [TestMethod]
         public void AreSame()
         {
-            /*
-   - Similar to Assert.AreEqual & Assert.AreNotEqual, 
+  /*
+    Similar to Assert.AreEqual & Assert.AreNotEqual, 
     but compare thereferences of the supplied arguments
     ensure that properties return expected instances or that 
     collections handle references correctly
      
-             */
-            object A = new string("Ahmed"); 
-            object B = new string("Ahmed");
+  */
+            object A = new string("Ahmed");
+            object B = A;
+            //object B = new string("Ahmed");
             Assert.AreSame(A,B,"the 2 object Are Not the Same");
         }
         [TestMethod]
@@ -208,8 +211,9 @@ namespace UnitTesting_Frameworks_BestPractices.MSTest
             //Arrange
             List<string> expected = new List<string>()
             { "A" , "B" , "C" ,"D" };
-            List<string> actual = new List<string>()
-            { "A" , "B" , "C"   };
+            List<string> actual = expected;
+            //List<string> actual = new List<string>()
+            //{ "A" , "B" , "C"   };
             //Act
             //Assert
             CollectionAssert.AreEqual(expected, actual, "Not the same");
@@ -234,7 +238,7 @@ namespace UnitTesting_Frameworks_BestPractices.MSTest
         {
             //Arrange
             List<string> expected = new List<string>()
-            { "A" , "B" , "C" ,"D" };
+            { "A" , "B" , "C" };
             List<string> actual = new List<string>()
             { "A" , "B" , "C"   };
             //Act

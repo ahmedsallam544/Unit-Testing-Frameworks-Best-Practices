@@ -17,9 +17,9 @@ namespace UnitTesting_Frameworks_BestPractices.Mocking
 
             // Act
             cart.AddProduct(product);
-
+           
             // Assert
-            Assert.Equal<decimal>(100.00M, cart.Total);
+            Assert.Equal<decimal>(54.97978M, cart.Total);
         }
     }
 }

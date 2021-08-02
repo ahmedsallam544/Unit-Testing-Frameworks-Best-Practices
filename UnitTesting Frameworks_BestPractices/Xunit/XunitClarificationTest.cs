@@ -19,7 +19,7 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
             //string substring = "XYZ";
             // Act
             // Assert
-            Assert.Contains(superstring, substring);
+            Assert.Contains(  substring , superstring );
         }
         [Fact]
         public void Test_ListsAreEqual_Passes()
@@ -41,7 +41,7 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
         public void AreSame()
         {
             object A = new string("Ahmed");
-            object B = new string("Ahmed");
+            object B = A;
             Assert.Same(A, B);
         }
         [Fact]
@@ -79,13 +79,13 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
         public void AssertStartsWith()
         {
             object A = "Football";
-            Assert.StartsWith(A as string, "Foot");
+            Assert.StartsWith("Foot" , A as string  );
         }
         [Fact]
         public void AssertEndsWith()
         {
             object A = "Football";
-            Assert.EndsWith(A as string, "ball");
+            Assert.EndsWith("ball" , A as string);
         }
         [Fact]
         public void AssertContains()
@@ -95,7 +95,7 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
             // Arrange
             string superstring = "ABCDEFGH";
             string substring = "CD";
-            Assert.Contains(superstring, substring);
+            Assert.Contains( substring , superstring);
 
         }
         [Fact]
@@ -128,7 +128,7 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
             List<string> expected = new List<string>()
             { "A" , "B" , "C" ,"D" };
             List<string> actual = new List<string>()
-            { "A" , "B" , "C"   };
+            { "A" , "B" , "C" ,"D"  };
             //Act
             //Assert
             Assert.Equal(expected, actual);
@@ -140,7 +140,7 @@ namespace UnitTesting_Frameworks_BestPractices.Xunit
             List<string> expected = new List<string>()
             { "A" , "B" , "C" ,"D" };
             List<string> actual = new List<string>()
-            { "A" , "B" , "C"   };
+            { "A" , "B" , "C" ,"D"  };
             //Act
             //Assert
             Assert.Equal<string>(expected, actual);
